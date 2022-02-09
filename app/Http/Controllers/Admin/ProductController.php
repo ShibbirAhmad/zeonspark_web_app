@@ -424,6 +424,9 @@ class ProductController extends Controller
                     $product->status = 1;
                     $product->stock = 0;
                     $product->details = $c_product->details;
+                    $product->delivery_policy = $c_product->delivery_policy ?? null;
+                    $product->size_chart = $c_product->size_chart ?? null;
+                    $product->specification = $c_product->specification ?? null;
                     $product->product_placement = $c_product->product_placement ?? 0;
                     $product->product_position = $c_product->product_position ?? 0;
                     $product->save();

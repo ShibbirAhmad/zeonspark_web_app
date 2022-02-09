@@ -67,7 +67,7 @@
 
 
                        <div class="row">
-                         <div class="col-md-6">
+                         <div class="col-md-12">
                              <div class="form-group">
                               <label> Header Contact Number </label>
                               <input class="form-control"
@@ -76,7 +76,25 @@
                                 <has-error :form="form" field="header_contact_number"> </has-error>
                             </div>
                          </div>
-                         <div class="col-md-6">
+                         <div class="col-md-12">
+                             <div class="form-group">
+                              <label> Contact Two </label>
+                              <input class="form-control"
+                                :class="{'is-invalid':form.errors.has('contact_two')}"
+                                type="number" v-model="form.contact_two" />
+                                <has-error :form="form" field="contact_two"> </has-error>
+                            </div>
+                         </div>
+                         <div class="col-md-12">
+                             <div class="form-group">
+                              <label> Contact Three </label>
+                              <input class="form-control"
+                                :class="{'is-invalid':form.errors.has('contact_three')}"
+                                type="text" v-model="form.contact_three" />
+                                <has-error :form="form" field="contact_three"> </has-error>
+                            </div>
+                         </div>
+                         <!-- <div class="col-md-6">
                            <div class="form-group">
                               <label> wallet point value <small> ex: 2 point = 1 Taka</small> </label>
                               <input class="form-control"
@@ -84,18 +102,64 @@
                                 type="text" v-model="form.wallet_point_value" />
                                 <has-error :form="form" field="wallet_point_value"> </has-error>
                               </div>
-                         </div>
-                       </div>
+                         </div> -->
+                       </div> 
+
                       <div class="form-group">
-                      <label for="invoice">Invoice Address Details </label>
-                      <ckeditor
-                        :editor="editor"
-                        name="invoice_address_details"
-                        :class="{ 'is-invalid': form.errors.has('invoice_address_details') }"
-                        v-model="form.invoice_address_details"
-                        :config="editorConfig"
-                      ></ckeditor>
-                       <has-error :form="form" field="invoice_address_details"></has-error>
+                        <label> Facebook Chat Plugin </label>
+                        <textarea
+                          class="form-control"
+                          v-model="form.facebook_chat_plugin"
+                          rows="5"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label> Facebook Domain Verification </label>
+                        <textarea
+                          class="form-control"
+                          v-model="form.facebook_domain_verification"
+                          rows="1"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label> Facebook Pixel Code </label>
+                        <textarea
+                          class="form-control"
+                          v-model="form.facebook_pixel_code"
+                          rows="5"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label> Google Domain Verification </label>
+                        <textarea
+                          class="form-control"
+                          v-model="form.google_domain_verification"
+                          rows="1"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label> Google Analytics </label>
+                        <textarea
+                          class="form-control"
+                          v-model="form.google_analytics"
+                          rows="5"
+                        ></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="invoice">Invoice Address Details </label>
+                        <ckeditor
+                          :editor="editor"
+                          name="invoice_address_details"
+                          :class="{ 'is-invalid': form.errors.has('invoice_address_details') }"
+                          v-model="form.invoice_address_details"
+                          :config="editorConfig"
+                        ></ckeditor>
+                        <has-error :form="form" field="invoice_address_details"></has-error>
                       </div>
 
                     </div>
@@ -142,6 +206,13 @@ export default {
         title: "",
         invoice_address_details:"",
         header_contact_number:"",
+        contact_two: "",
+        contact_three: "",
+        facebook_chat_plugin: "",
+        facebook_domain_verification : "",
+        google_domain_verification: "",
+        google_analytics: "",
+        facebook_pixel_code: "",
       }),
       editor: ClassicEditor,
       editorConfig: {},
@@ -177,7 +248,14 @@ export default {
             this.form.icon= resp.data.setting.icon ;
             this.form.wallet_point_value= resp.data.setting.wallet_point_value ;
             this.form.header_contact_number= resp.data.setting.header_contact_number ;
+            this.form.contact_two= resp.data.setting.contact_two ? resp.data.setting.contact_two : "" ;
+            this.form.contact_three= resp.data.setting.contact_three ? resp.data.setting.contact_three : "";
             this.form.invoice_address_details= resp.data.setting.invoice_address_details ;
+            this.form.facebook_chat_plugin= resp.data.setting.facebook_chat_plugin ? resp.data.setting.facebook_chat_plugin : "";
+            this.form.facebook_domain_verification= resp.data.setting.facebook_domain_verification ? resp.data.setting.facebook_domain_verification : "" ;
+            this.form.facebook_pixel_code= resp.data.setting.facebook_pixel_code ? resp.data.setting.facebook_pixel_code : "" ;
+            this.form.google_domain_verification= resp.data.setting.google_domain_verification ? resp.data.setting.google_domain_verification : "" ;
+            this.form.google_analytics= resp.data.setting.google_analytics ? resp.data.setting.google_analytics : "" ;
 
             if(this.form.logo){
               this.preview_logo=this.base_url+this.form.logo;

@@ -147,12 +147,18 @@ class HomeController extends Controller
 
     public function slider()
     {
-         $slider = Slider::where('status',1)->where('position',1)->get();
-         $best_selling_product_id=OrderItem::select('product_id',DB::raw('count(*) as total'))
-                                                ->groupBy('product_id')
-                                                ->orderBy('total','desc')
-                                                ->take(12)
-                                                ->pluck('product_id');
+        $slider = Slider::where('status',1)->where('position',1)->get();
+        $date = Carbon::now()->subDays(7);
+        $best_selling_product_id = OrderItem::where('created_at', '>=', $date)
+                                                    ->groupBy('product_id')
+                                                    ->orderBy('total', 'desc')
+                                                    ->take(12)
+                                                    ->pluck('product_id');
+        // $best_selling_product_id=OrderItem::select('product_id',DB::raw('count(*) as total'))
+        //                                         ->groupBy('product_id')
+        //                                         ->orderBy('total','desc')
+        //                                         ->take(12)
+        //                                         ->pluck('product_id');
         $best_selling_produtcs =Product::where('stock','>',0)->where('status',1)->WhereIn('id',$best_selling_product_id)->with('productAttribute')->get();
         $banner=Banner::latest()->first();
         $offer_banner=OfferBanner::where('status',1)->orderBy('id','desc')->get();

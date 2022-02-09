@@ -141,8 +141,8 @@
                         <th width="10%" >Invoice</th>
                         <th width="10%" >Total</th>
                         <th width="5%" >Created</th>
-                        <th width="5%" >Order_place</th>
-                        <th width="5%" >Order_date</th>
+                        <th width="5%" >Order Place</th>
+                        <th width="5%" >Order Date</th>
                         <th width="5%" >Action</th>
                         <th width="10%" >Courier</th>
                         <th width="5%" >Comment</th>

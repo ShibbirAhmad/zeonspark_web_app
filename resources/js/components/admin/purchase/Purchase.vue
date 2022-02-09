@@ -78,8 +78,8 @@
                          <th scope="col">Date</th>
                           <th scope="col">Supplier</th>
 
-                        <th scope="col">Invoice_no</th>
-                        <th scope="col">Total_amount</th>
+                        <th scope="col">Invoice No</th>
+                        <th scope="col">Total Amount</th>
                         <th scope="col">Action</th>
                       </tr>
                     </thead>

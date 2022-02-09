@@ -138,7 +138,7 @@
                       class="form-control"
                       :class="{ 'is-invalid': form.errors.has('sale_price') }"
                       autocomplete="off"
-                      placeholder="sale_price"
+                      placeholder="price"
                       @keyup="salePrice()"
                     />
                     <has-error :form="form" field="sale_price"></has-error>
@@ -166,7 +166,7 @@
                       class="form-control"
                       :class="{ 'is-invalid': form.errors.has('price') }"
                       autocomplete="off"
-                      placeholder="price"
+                      placeholder="sale price"
                       readonly
                     />
                     <has-error :form="form" field="price"></has-error>

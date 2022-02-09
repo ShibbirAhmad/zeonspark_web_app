@@ -150,7 +150,8 @@ export default {
 <style scoped>
 .submit_style {
   margin-bottom: 20px;
-  width: 80px;
+  width: 132px;
+  
   background: #ff4d03;
   border: dashed 1px;
   color: #fff;

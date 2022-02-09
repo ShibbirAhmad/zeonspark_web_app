@@ -34,13 +34,13 @@
                 <div class="row">
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label>Purchase_date</label>
+                      <label>Purchase Date</label>
                       <date-picker  autocomplete="off" v-model="purchase_date" :config="options"></date-picker>
                     </div>
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label>Invoice_no</label>
+                      <label>Invoice No</label>
                       <input
                         class="form-control"
                         v-model="invoice_no"
@@ -88,7 +88,7 @@
                   </div>
                    <div class="col-lg-3">
                     <div class="form-group">
-                      <label for="">Due Amout</label>
+                      <label for="">Due Amount</label>
                       <input type="text" class="form-control"  readonly v-model="due">
                     </div>
                   </div>

@@ -155,8 +155,8 @@
                         <th width="10%" >Invoice</th>
                         <th width="10%" >Total</th>
                         <th width="5%" >Created</th>
-                        <th width="5%" >Order_place</th>
-                        <th width="5%" >Order_date</th>
+                        <th width="5%" >Order Place</th>
+                        <th width="5%" >Order Date</th>
                         <th width="5%" >Action</th>
                         <th width="10%" >Courier</th>
                         <th width="10%" >Comment</th>
@@ -244,6 +244,17 @@
                         <td class="two-percent">{{ order.created_at }}</td>
                         <td>
                           <button
+                            @click="orderAction(order.id)"
+                            class="btn btn-success"
+                          >
+                            -- <i class="fa fa-bars"></i> --
+                          </button>
+
+                          <div
+                            :id="'order_action_' + order.id"
+                            class="action_container"
+                          >
+                          <button
                             class="btn btn-sm btn-success action-btn"
                             v-if="
                               order.status == 2 || order.status == 1 || order.status == 6
@@ -292,6 +303,7 @@
                             :to="{ name: 'orderEdit', params: { id: order.id } }"
                             >Edit</router-link
                           >
+                          </div>
                         </td>
                         <td style="width: 1%">
                           <small v-if="order.courier_id">{{ order.courier.name }}</small>

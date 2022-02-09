@@ -42,7 +42,7 @@ $admin = session()->get('admin');
 
             @endif
              <li>
-                <router-link :to="{ name: 'partner_requested'}"><i class="fa fa-list"></i>partner_requested</router-link>
+                <router-link :to="{ name: 'partner_requested'}"><i class="fa fa-list"></i>Partner Requested</router-link>
             </li>
              @if($admin->can('manage Sale'))
             <li class="treeview">
@@ -188,7 +188,7 @@ $admin = session()->get('admin');
              @if($admin->can('manage attribute'))
          <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-deviantart"></i> <span>attribute</span>
+                    <i class="fa fa-deviantart"></i> <span>Attribute</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>

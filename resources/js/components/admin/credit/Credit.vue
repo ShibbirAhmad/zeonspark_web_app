@@ -77,13 +77,13 @@
                   </div>
                 </div>
                 <div class="box-body">
-                  <table class="table">
+                  <table class="table table-bordered">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
                                              <th scope="col">Date</th>
 
-                        <th scope="col">Invoice_no</th>
+                        <th scope="col">Invoice No</th>
                          <th scope="col">Purpose</th>
                           <th scope="col">Credit In</th>
                         <th scope="col">Amount</th>

@@ -39,6 +39,11 @@ class GeneralSettingController extends Controller
             $setting->wallet_point_value=$request->wallet_point_value;
             $setting->header_contact_number=$request->header_contact_number;
             $setting->invoice_address_details=$request->invoice_address_details;
+            $setting->facebook_chat_plugin = $request->facebook_chat_plugin;
+            $setting->facebook_domain_verification = $request->facebook_domain_verification;
+            $setting->facebook_pixel_code = $request->facebook_pixel_code;
+            $setting->google_domain_verification = $request->google_domain_verification;
+            $setting->google_analytics = $request->google_analytics;
 
             if ($request->hasFile('logo') ) {
                 $logo_path = $request->file('logo')->store('images/general_setting', 'public');

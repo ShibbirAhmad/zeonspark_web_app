@@ -29,7 +29,7 @@
                   <div v-if="form.type == 1">
                      <div class="col-lg-3">
                       <div class="form-group">
-                        <label>Mobile_no
+                        <label>Mobile No
 
                         </label>
                             <small style="float:right;">{{form.mobile_no.length}}/11</small>
@@ -106,7 +106,7 @@
                   <div class="row">
                     <div class="col-lg-4">
                       <div class="form-group">
-                        <label>Product_code</label>
+                        <label>Product Code</label>
                         <input
                           class="form-control"
                           autocomplete="off"
@@ -520,9 +520,9 @@ export default {
 
     //method initial for validation product data
     validation() {
-      //console.log(this.preview_products.price)
+      // console.log(this.preview_products.price)
       if (
-        this.preview_products.price.length > 0 &&
+        // this.preview_products.price.length > 0 &&
         this.preview_products.quantity.length > 0 &&
         this.preview_products.product_id &&
         this.search.length > 0 &&

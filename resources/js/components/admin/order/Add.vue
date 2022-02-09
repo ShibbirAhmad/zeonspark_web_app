@@ -41,7 +41,7 @@
                 </div>
                 <div class="box-body">
                   <div class="form-group">
-                    <label>Customer_mobile</label>
+                    <label>Customer Mobile</label>
                     <input
                       type="text"
                       name="customer_mobile"
@@ -146,7 +146,7 @@
                   </div>
 
                   <div class="form-group">
-                    <label>Shipping_cost</label>
+                    <label>Shipping Cost</label>
                     <input
                       type="text"
                       name="shipping_cost"

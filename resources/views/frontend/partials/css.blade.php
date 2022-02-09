@@ -2667,7 +2667,63 @@ span.price-new {
     .menu_for_mobile{
         display: none;
     }
+@media only screen and (min-width: 1400px) {
+    .search-btn {
+        height: 35px;
+        transition: .5s;
+        border-radius: 0px 5px 5px 0px;
+        border: none;
+        right: 9px;
+        background: var(--primary-color);
+        color: #fff;
+        width: 64px;
+        position: absolute;
+        top: 15%;
+        left: 64%;
+    }
+    .search-input {
+        cursor: pointer;
+        width: 40%;
+        height: 35px;
+        padding: 0 17px;
+        border-radius: 5px 0px 0px 5px;
+        transition: .5s;
+        background-color: #ffff;
+        border: 1.5px solid var(--primary-color);
+        position: absolute;
+        top: 15%;
+        margin-left: 3%;
+    }
+}
 
+@media only screen and (max-width: 1200px) {
+    .search-btn {
+        height: 35px;
+        transition: .5s;
+        border-radius: 0px 5px 5px 0px;
+        border: none;
+        right: 9px;
+        background: var(--primary-color);
+        color: #fff;
+        width: 64px;
+        position: absolute;
+        top: 15%;
+        left: 64%;
+    }
+    .search-input {
+        cursor: pointer;
+        width: 40%;
+        height: 35px;
+        padding: 0 17px;
+        border-radius: 5px 0px 0px 5px;
+        transition: .5s;
+        background-color: #ffff;
+        border: 1.5px solid var(--primary-color);
+        position: absolute;
+        top: 15%;
+        margin-left: 3%;
+    }
+}
 @media only screen and (max-width: 900px) {
 
     .header-top {

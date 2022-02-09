@@ -28,7 +28,7 @@
                   <div v-if="form.type == 1">
                     <div class="col-lg-3">
                       <div class="form-group">
-                        <label>Mobile_no </label>
+                        <label>Mobile No </label>
                         <small style="float: right">{{ form.mobile_no.length }}/11</small>
 
                         <input
@@ -100,7 +100,7 @@
                   <div class="row">
                     <div class="col-lg-3">
                       <div class="form-group">
-                        <label>Product_code | Barcode </label>
+                        <label>Product Code | Barcode </label>
                         <input
                           class="form-control"
                           autocomplete="off"
