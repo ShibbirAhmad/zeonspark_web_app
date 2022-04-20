@@ -93,7 +93,6 @@ height:200px;
         <?php
           $setting = App\Models\GeneralSetting::latest()->first();
         ?>
-
 </head>
 <body>
 <div class="btn-pr">
@@ -123,6 +122,7 @@ height:200px;
                 <table class="table table-bordered moha_tbl_inv" style="margin-top: 5px;">
 
                     <tbody>
+                        
                     <tr>
                               <th colspan="2" class="text-left"> Name &nbsp;:
                         <span style="font-size:15px;">
@@ -191,6 +191,7 @@ height:200px;
                             <td class="text-center"><span style="border: .5px solid #ddd;"><b style="font-size: 16px;padding:5px 5px 5px 5px;"> {{$item->qty}}</b></span></td>
                             <td class="text-right">{{$item->qty*$item->price}} Tk</td>
                         </tr>
+                    @endforeach
 
 
                     <tr>
@@ -235,7 +236,7 @@ height:200px;
 
 
     </div>
-@endforeach
+
  <div class="rotate-logo">
             <img src="{{ asset('storage/'.$setting->logo) }}" alt="">
         </div>

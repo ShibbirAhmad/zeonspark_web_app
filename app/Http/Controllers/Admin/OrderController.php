@@ -344,12 +344,12 @@ class OrderController extends Controller
             $order->delivery_date=date('Y-m-d');
             $order->save();
             //when order delievered,then order amount is created at a new credit.....
-            $total=$order->total - ($order->paid+$order->discount) + $order->shipping_cost;
+            $total=$order->total - ($order->paid+$order->discount) + $order->shipping_cost +  $order->additional_charge;
             if($total > 0){
                 $comment='Delievred Order. Order Amount BDT '.$total.' Order Invoice number is '.$order->invoice_no;
                 $credit = new Credit();
                 $credit->purpose = "Delievred Order";
-                $credit->amount =( $order->total+$order->shipping_cost)-($order->paid+$order->discount);
+                $credit->amount =( $order->total+$order->shipping_cost + $order->additional_charge)-($order->paid+$order->discount);
                 $credit->comment =$comment;
                 $credit->date = date('Y-m-d');
                 $credit->insert_admin_id=session()->get('admin')['id'];

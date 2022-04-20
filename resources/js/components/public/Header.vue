@@ -214,7 +214,7 @@
             @click="shownextElement"
             v-if="category.sub_category.length > 0"
           ></i>
-          <ul class="sub-item-list" v-if="category.sub_category.length > 0">
+          <ul class="sub-item-list" v-if="category.sub_category.length > 0" id="sub_menu_list">
             <li
               class="sub-item"
               v-for="sub_category in category.sub_category"

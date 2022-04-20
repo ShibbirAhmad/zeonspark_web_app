@@ -211,7 +211,7 @@
         @media only screen and (max-width:768px) {
 
           .col-lg-11, .col-md-11, .col-lg-10,.col-md-10,.col-lg-6,.col-md-8,.col-lg-6,.col-md-6 {
-              overflow-x: auto ;
+              overflow-x: auto !important ;
           }
 
           .order_statistic a {

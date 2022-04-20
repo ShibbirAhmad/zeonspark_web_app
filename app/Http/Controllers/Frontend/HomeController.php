@@ -131,7 +131,7 @@ class HomeController extends Controller
     public function categoryWiseProduct(Request $request)
     {
       $category=Category::where('slug',$request->slug)->first();
-      $products=Product::where('stock','>',0)->where('category_id',$category->id)->with('productAttribute')->paginate(12);
+      $products=Product::where('stock','>',0)->where('category_id',$category->id)->orderBy('id', 'desc')->with('productAttribute')->paginate(12);
       return response()->json($products);
     }
 
@@ -214,7 +214,7 @@ class HomeController extends Controller
 
     public function subCategoryWiseProduct(Request $request){
          $sub_category=SubCategory::where('slug',$request->slug)->first();
-        $products=Product::where('stock','>',0)->where('sub_category_id',$sub_category->id)->with('productAttribute')->paginate(8);
+        $products=Product::orderBy('id', 'DESC')->where('stock','>',0)->where('sub_category_id',$sub_category->id)->with('productAttribute')->paginate(8);
         return response()->json($products);
     }
 
@@ -240,7 +240,7 @@ class HomeController extends Controller
     public function subSubCategoryWiseProduct(Request $request){
 
         $sub_sub_category=SubSubCategory::where('slug',$request->slug)->first();
-        $products=Product::where('stock','>',0)->where('sub_sub_category_id',$sub_sub_category->id)->where('status',1)->with('productAttribute')->paginate(8);
+        $products=Product::orderBy('id', 'DESC')->where('stock','>',0)->where('sub_sub_category_id',$sub_sub_category->id)->where('status',1)->with('productAttribute')->paginate(8);
         return response()->json($products);
     }
 

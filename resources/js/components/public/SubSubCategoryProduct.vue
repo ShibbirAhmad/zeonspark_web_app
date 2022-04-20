@@ -110,41 +110,41 @@
 
           <div id="content" class="col-sm-9">
             <div class="row">
-  <div class="col-lg-4 custom_padding col-sm-4 col-md-4 col-xs-6  " v-for="product in products" :key="product.id">
-            <div class="product-card ">
-              <div class="product-card-body">
-                <router-link :to="{name: 'single', params: { slug: product.slug } }">
+              <div class="col-lg-4 custom_padding col-sm-4 col-md-4 col-xs-6  " v-for="product in products" :key="product.id">
+                <div class="product-card ">
+                  <div class="product-card-body">
+                    <router-link :to="{name: 'single', params: { slug: product.slug } }">
 
-                 <img :src="  product_thumbnail_link + product.thumbnail_img "  :alt="product.name" />
+                    <img :src="  product_thumbnail_link + product.thumbnail_img "  :alt="product.name" />
 
-                </router-link>
-                <div class="product-detail ">
-                  <h4>   <router-link class="product-link" :to="{name: 'single', params: { slug: product.slug } }">{{ product.name.substring(0,20) }}
-                         <span v-if="product.name.length > 20">...</span></router-link ></h4>
-                  <p class="price">
-                    <span class="price-new"> &#2547;{{
-                      product.price
-                    }}</span>
-                    <span
-                      class="price-old"
-                      v-if="product.discount"
-                      > &#2547;{{ product.sale_price }}</span
-                    >
+                    </router-link>
+                    <div class="product-detail ">
+                      <h4>   <router-link class="product-link" :to="{name: 'single', params: { slug: product.slug } }">{{ product.name.substring(0,20) }}
+                            <span v-if="product.name.length > 20">...</span></router-link ></h4>
+                      <p class="price">
+                        <span class="price-new"> &#2547;{{
+                          product.price
+                        }}</span>
+                        <span
+                          class="price-old"
+                          v-if="product.discount"
+                          > &#2547;{{ product.sale_price }}</span
+                        >
 
-                  </p>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="product-card-footer">
+                    <div class="new_arrival_card_footer">
+                          <router-link  v-if="product.product_attribute" :to="{ name:'single',params:{ slug: product.slug }}" > Add To Cart </router-link>
+                            <a v-else @click="addToCart(product.slug)" >Add To Cart</a>
+
+                          <router-link  v-if="product.product_attribute" :to="{ name:'single',params:{ slug: product.slug }}" >Buy Now </router-link>
+                          <a  v-else  @click="buyNow(product.slug)" >Buy Now </a>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="product-card-footer">
-                <div class="new_arrival_card_footer">
-                       <router-link  v-if="product.product_attribute" :to="{ name:'single',params:{ slug: product.slug }}" > Add To Cart </router-link>
-                        <a v-else @click="addToCart(product.slug)" >Add To Cart</a>
-
-                       <router-link  v-if="product.product_attribute" :to="{ name:'single',params:{ slug: product.slug }}" >Buy Now </router-link>
-                       <a  v-else  @click="buyNow(product.slug)" >Buy Now </a>
-                </div>
-              </div>
-            </div>
-          </div>
               <infinite-loading @infinite="subSubCategoryWiseProduct">
                 <div slot="no-more"></div>
               </infinite-loading>

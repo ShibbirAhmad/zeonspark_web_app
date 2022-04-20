@@ -2875,9 +2875,6 @@ span.price-new {
         display: none !important;
     }
 
-    .slider {
-            margin-top: 95px;
-        }
 
     .sub-item-list {
         width: 90%;
@@ -2891,22 +2888,17 @@ span.price-new {
 
     .sub-sub-item-list {
         width: 90%;
-        margin-top: 10px;
+        margin-top: 76px;
         padding: 0;
         height: auto;
         left: -4px;
         top: 0;
         z-index: 99999;
-        margin-bottom: 0px;
-        position: relative;
     }
-    /* .sub-sub-item-list :hover{
-
-    } */
 
        #content {
             min-height: 400px;
-            margin-top: 0px;
+            margin-top: 100px;
         }
 
       .header_cart_img p{

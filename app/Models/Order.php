@@ -236,18 +236,17 @@ class Order extends Model
 
       public static function SendConfirmationMessage($order){
 
-          $amount = ($order->total + $order->shipping_cost) - ($order->discount + $order->paid ) ;
+          $amount = ($order->total + $order->shipping_cost + $order->additional_charge) - ($order->discount + $order->paid ) ;
           $contacts = $order->customer_phone;
-          $sms = $order->customer_name.','. ' Your order on ZEONS PARK has been successfully confirmed.
-          Invoice No  '.$order->invoice_no. '.' .' Payable amount is  '.$amount. ' TK. Hotline: 01648880217. Thanks by zeonspark.com';   // put here your dynamic message text here
+          $sms = $order->customer_name.','. ' Your order on ZEONS PARK has been successfully Confirmed.Invoice No  '.$order->invoice_no. '.' .' Payable Amount is  '.$amount. ' TK. Hotline: 01648880217.Thank You';   // put here your dynamic message text here
           return self::smsApi($contacts,$sms);
     }
 
 
      public static function sendOrderPendingMessage($order){
-        $amount = ($order->total + $order->shipping_cost) - ($order->discount + $order->paid ) ;
+        $amount = ($order->total + $order->shipping_cost + $order->additional_charge) - ($order->discount + $order->paid ) ;
         $contacts = $order->customer_phone;
-        $sms = $order->customer_name.','. ' You Placed an order on ZEONS PARK has been pending for Partial Payment. Please pay your Partial Amount by BKash: 01730-257623 (merchant).Hotline:01648880217.Thank You.';   // put here your dynamic message text here
+        $sms = $order->customer_name.','. ' You Placed an order on ZEONS PARK has been pending for Partial Payment. Please pay your Partial Amount by BKash(merchant),Nagad,Rocket: 01730-257623.Hotline:01648880217.Thank You.';   // put here your dynamic message text here
         return self::smsApi($contacts,$sms);
     }
 
@@ -281,7 +280,7 @@ class Order extends Model
         $total= (($order->total + $order->shipping_cost) - $order->paid ) ;
         $customer_name=$order->customer_name;
         $contacts=$order->customer_phone;
-        $sms = 'Assalamualikum Dear ' . $customer_name .'.'. ' Your order has been shiped to '.$courier_name.' courier.'.' Your memo number is ' .$memo_no.' and payable amount '.$total.' Tk.'.' Thanks by smartdealbd.com';
+        $sms = 'Assalamualikum Dear ' . $customer_name .'.'. ' Your order has been shipped to '.$courier_name.' courier.'.' Your memo number is ' .$memo_no.' and payable amount '.$total.' Tk.'.' Thanks by smartdealbd.com';
        // put here your dynamic message text here
        return self::smsApi($contacts,$sms);
     }
