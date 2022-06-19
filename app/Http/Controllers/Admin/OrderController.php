@@ -953,7 +953,7 @@ class OrderController extends Controller
 
 
 
-    public function exportOrderSelectedItem($id){
+    public function exportOrderForRedx($id){
 
         $order_id = explode(',', $id);
         $orders = Order::whereIn('id', $order_id)->get();
@@ -961,20 +961,23 @@ class OrderController extends Controller
         $file = fopen($filename, "w");
 
         fputcsv($file, array(
-            'ActualAmount' => "ActualAmount",
-            'CollectionAmount' => 'CollectionAmount',
-            'CustomerMobile' => 'CustomerMobile',
+            'Invoice' => "Invoice",
+            'Customer Name' => 'Customer Name',
+            'Contact No.' => 'Contact No.',
+            'Customer Address' => 'Customer Address',
             'District' => 'District',
-            'CustomerAddress' => 'CustomerAddress',
-            'CustomerName' => "CustomerName",
-            'CollectionName' => "CollectionName",
+            'Area' => "Area",
+            'Price' => "Price",
+            'Product Selling Price' => "Product Selling Price",
+            'Seller Name' => "Seller Name",
+            'Seller Phone' => "Seller Phone",
         ));
 
         foreach ($orders as $k => $line) {
 
             $city = City::where('id', $line->city_id)->first();
             $sub_city = SubCity::where('id', $line->sub_city_id)->first();
-            $g_total = (($line->total - $line->discount - $line->paid) + $line->shipping_cost);
+            $g_total = (($line->total - ($line->discount + $line->paid)) + $line->shipping_cost);
             $address=$line->customer_address;
             if(!empty($sub_city->name)){
                 $address.=','.$sub_city->name;
@@ -983,13 +986,16 @@ class OrderController extends Controller
                 $address.=','.$city->name;
             }
             fputcsv($file, array(
-                'ActualAmount' =>  $line->total - $line->discount,
-                'CollectionAmount' =>  $g_total,
-                'CustomerMobile' => $line->customer_phone,
-                'District' => $city->name ?? "",
-                'CustomerAddress' =>$address ,
-                'CustomerName' => $line->customer_name,
-                'CollectionName' => $line->invoice_no
+                'Invoice' => $line->invoice_no,
+                'Customer Name' => $line->customer_name,
+                'Contact No.' => $line->customer_phone,
+                'Customer Address' => $address,
+                'District' => ucwords($line->city) ?? "empty",
+                'Area' => ucwords($line->thana) ?? "empty",
+                'Price' => $g_total,
+                'Product Selling Price' => $g_total,
+                'Seller Name' => 'zeonspark.com',
+                'Seller Phone' => '01730257623 ',
             ));
         }
         fclose($file);

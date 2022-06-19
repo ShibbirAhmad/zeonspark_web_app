@@ -1221,7 +1221,13 @@ export default {
       margin-bottom: 10px;
       margin-left: 30%;
   }
-
+@media screen and (max-width: 768px) {
+   .order_statistic a {
+      width: 45%;
+      height: 100px;
+      padding: 0px 45px;
+  }
+}
 
 
 </style>

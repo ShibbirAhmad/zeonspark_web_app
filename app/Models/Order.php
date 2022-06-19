@@ -238,7 +238,8 @@ class Order extends Model
 
           $amount = ($order->total + $order->shipping_cost + $order->additional_charge) - ($order->discount + $order->paid ) ;
           $contacts = $order->customer_phone;
-          $sms = $order->customer_name.','. ' Your order on ZEONS PARK has been successfully Confirmed.Invoice No  '.$order->invoice_no. '.' .' Payable Amount is  '.$amount. ' TK. Hotline: 01648880217.Thank You';   // put here your dynamic message text here
+          $sms = $order->customer_name.','. ' আপনার অর্ডারটি সফলভাবে গ্রহণ করা হয়েছে। ইনভয়েস নাম্বার-'.$order->invoice_no. ';' .' বিলের পরিমান-'.$amount.'/-টাকা। Hotline:- 01648880217'
+          .' ZEONS PARK';
           return self::smsApi($contacts,$sms);
     }
 
@@ -246,7 +247,8 @@ class Order extends Model
      public static function sendOrderPendingMessage($order){
         $amount = ($order->total + $order->shipping_cost + $order->additional_charge) - ($order->discount + $order->paid ) ;
         $contacts = $order->customer_phone;
-        $sms = $order->customer_name.','. ' You Placed an order on ZEONS PARK has been pending for Partial Payment. Please pay your Partial Amount by BKash(merchant),Nagad,Rocket: 01730-257623.Hotline:01648880217.Thank You.';   // put here your dynamic message text here
+        $sms = $order->customer_name.','. ' আপনার অর্ডারটি কনফার্ম করার জন্য পার্শিয়াল পেমেন্টের জন্য অনুরোধ করা হলো। অনুগ্রহ করে 01730-257623 বিকাশ পেমেন্ট অথবা নগদ সেন্ড মানির মাধ্যমে আপনার পার্শিয়াল অর্থ প্রদান করুন।'.' Invoice No '.$order->invoice_no . 'ধন্যবাদ।'
+        .' "ZEONS PARK"';
         return self::smsApi($contacts,$sms);
     }
 
@@ -280,8 +282,11 @@ class Order extends Model
         $total= (($order->total + $order->shipping_cost) - $order->paid ) ;
         $customer_name=$order->customer_name;
         $contacts=$order->customer_phone;
-        $sms = 'Assalamualikum Dear ' . $customer_name .'.'. ' Your order has been shipped to '.$courier_name.' courier.'.' Your memo number is ' .$memo_no.' and payable amount '.$total.' Tk.'.' Thanks by smartdealbd.com';
-       // put here your dynamic message text here
+        // $sms = 'Assalamualikum Dear ' . $customer_name .'.'. ' Your order has been shipped to '.$courier_name.' courier.'.' Your memo number is ' .$memo_no.' and payable amount '.$total.' Tk.'.' Thanks by smartdealbd.com';
+        $sms = $customer_name .'.'. ' আপনার অর্ডারটি প্রেরণ করা হয়েছে '.$courier_name.' কুরিয়ার.'.' আপনার ইনভয়েস নাম্বার' .$memo_no.' পরিশোধনীয় টাকা '.$total.' Tk.'.' ধন্যবাদান্তে zeonspark.com';
+        $sms = $customer_name .'.'. ' আপনার অর্ডারটি প্রেরণ করা হয়েছে '.$courier_name.' কুরিয়ার.'.' আপনার ইনভয়েস নাম্বার
+        ' .$memo_no.' পরিশোধনীয় টাকা '.$total.' Tk.'.' ধন্যবাদান্তে dreambuzz.shop';
+        // put here your dynamic message text here
        return self::smsApi($contacts,$sms);
     }
 

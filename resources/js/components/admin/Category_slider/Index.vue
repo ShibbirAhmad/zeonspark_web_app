@@ -121,12 +121,12 @@
                 loading: true,
                 search: '',
                 basePath:this.$store.state.image_base_link,
+                page: 1,
             }
         },
         methods: {
-
-            getSlider(page = 1) {
-                axios.get('/api/category/list/slider?page=', + page )
+            getSlider(page) {
+                axios.get('/api/category/list/slider?page=' + page )
                     .then((resp) => {
                         console.log(resp);
                         if (resp.data.status == 'SUCCESS') {
@@ -142,7 +142,7 @@
                     })
                     .catch((error) => {
                         console.log(error)
-                        this.$toasted.show('something went to wrong', {
+                        this.$toasted.show(error.response.data.message, {
                             type: "error",
                             position: 'top-center',
                             duration: 4000
@@ -276,6 +276,8 @@
                     }
                 })
             },
+
+            
 
 
         }

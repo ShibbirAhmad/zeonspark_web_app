@@ -509,7 +509,9 @@ Route::group([
     //order bulk action route
     Route::get('order/label/print/{id}', 'OrderController@labelPrint');
     Route::get('order/invoice/print/{id}', 'OrderController@invoicePrint');
-    Route::get('export/selected/item/{id}', 'OrderController@exportOrderSelectedItem');
+    // Route::get('export/selected/item/{id}', 'OrderController@exportOrderSelectedItem');
+    Route::get('export/orders/for/redx/{id}', 'OrderController@exportOrderForRedx');
+
     Route::get('api/get/order/statistic', 'OrderController@orderStatistic');
 
     Route::get('pending/all/order/{id}', 'OrderController@pendingAll');

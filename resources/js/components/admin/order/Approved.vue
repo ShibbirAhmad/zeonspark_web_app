@@ -53,6 +53,10 @@
                 <div class="box-header with-border">
                   <h3 class="box-title orders-heading">{{ heading }}</h3>
 
+                  <div class="expert_data">
+                    <a class="btn btn-success btn-sm" @click="exportForRedx"> <i class="fa fa-download"></i> Export For Redx CSV </a>
+                  </div>
+
                   <div class="row">
                     <div class="col-lg-4">
                       <input
@@ -1243,6 +1247,14 @@ export default {
         }
       });
     },
+     exportForRedx(){
+      if (this.select_order_id.length > 0) {
+          window.open(
+            "/export/orders/for/redx/" + this.select_order_id,
+            "_blank"
+          );
+        }
+    }
   },
 
   watch: {
@@ -1295,5 +1307,23 @@ export default {
   border-bottom: 2px solid #000;
   margin-bottom: 10px;
   margin-left: 30%;
+}
+.expert_data{
+  display: inline-block;
+  float: right;
+}
+@media screen and (max-width: 768px) {
+   .order_statistic a {
+      width: 45%;
+      height: 100px;
+      padding: 0px 45px;
+  }
+   .expert_data{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 72%;
+    margin-bottom: 10px;
+  }
 }
 </style>

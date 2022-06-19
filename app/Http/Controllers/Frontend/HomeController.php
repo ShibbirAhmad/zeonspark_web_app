@@ -331,6 +331,7 @@ class HomeController extends Controller
         $contacts =$number;
         $senderid = '8809612446732';
         $sms = 'Dear Sir, '. 'Your one time pin code is '.$code.'. It will expire in 3 minute';
+        $sms = 'আপনাকে zeonspark.com এ স্বাগতম'. ' আপনার পিন নাম্বারটি হল '.$code.'. এটি ৩ মিনিটের মধ্যে অকার্যকর হয়ে যাবে৷';
         $URL = "http://bulk.fmsms.biz/smsapi?api_key=" . urlencode($api_key) . "&type=text&contacts=" . urlencode($contacts) . "&senderid=" . urlencode($senderid) . "&msg=" . urlencode($sms);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $URL);
