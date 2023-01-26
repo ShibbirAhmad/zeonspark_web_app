@@ -100,8 +100,6 @@
                         placeholder=" মোবাইল নাম্বার "
                         required
                         class="form-control"
-                        maxlength="11"
-                        minlength="11"
                         :class="{ 'is-invalid': form.errors.has('mobile_no') }"
                         v-model="form.mobile_no"
                       />

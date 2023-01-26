@@ -25,7 +25,7 @@ class OrderController extends Controller
     public function checkout(Request $request){
      //   return $request->all();
         $validatedData = $request->validate([
-            'mobile_no' => 'required|digits:11',
+            'mobile_no' => 'required',
             'name' => 'required ',
             'address' => 'required',
             'city' => 'required',

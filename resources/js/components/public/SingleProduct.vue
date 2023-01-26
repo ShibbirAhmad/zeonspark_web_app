@@ -78,29 +78,26 @@
                             <div class="pr_switch_wrap">
                                 <div class="product-attributes">
 
-                                            <div v-if="product.product_attribute.attribute.name.toLowerCase()=='size'" class="text-swatches-wrapper attribute-swatches-wrapper attribute-swatches-wrapper form-group product__attribute product__color"
-                                                data-type="text">
-                                                <label class="attribute-name">Size</label>
-                                                <div class="attribute-values">
-                                                    <ul class="text-swatch attribute-swatch color-swatch">
-                                                            <li v-for="(variant,index) in product.product_variant" :key="index"
-                                                                class="attribute-swatch-item pe-none">
-                                                                <div>
-                                                                    <label>
-                                                                        <input class="product-filter-item variant_size"
-                                                                            type="radio" v-model="cart.variant_id" name="size"
-                                                                            :value="variant.variant.id" >
-                                                                        <span>{{ variant.variant.name }}</span>
-                                                                    </label>
-                                                                </div>
-                                                            </li>
+                                  <div v-if="product.product_attribute.attribute.name.toLowerCase()=='size'" class="text-swatches-wrapper attribute-swatches-wrapper attribute-swatches-wrapper form-group product__attribute product__color"
+                                      data-type="text">
+                                      <label class="attribute-name">Size</label>
+                                      <div class="attribute-values">
+                                          <ul class="text-swatch attribute-swatch color-swatch">
+                                                  <li v-for="(variant,index) in product.product_variant" :key="index"
+                                                      class="attribute-swatch-item pe-none">
+                                                      <div>
+                                                          <label>
+                                                              <input class="product-filter-item variant_size"
+                                                                  type="radio" v-model="cart.variant_id" name="size"
+                                                                  :value="variant.variant.id" >
+                                                              <span>{{ variant.variant.name }}</span>
+                                                          </label>
+                                                      </div>
+                                                  </li>
 
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-
-
+                                          </ul>
+                                      </div>
+                                  </div>
                                 </div>
                             </div>
                         </div>
