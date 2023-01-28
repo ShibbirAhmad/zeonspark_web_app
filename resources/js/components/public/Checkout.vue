@@ -99,6 +99,8 @@
                         name="mobile_no"
                         placeholder=" মোবাইল নাম্বার "
                         required
+                        maxlength="11"
+                        minlength="11"
                         class="form-control"
                         :class="{ 'is-invalid': form.errors.has('mobile_no') }"
                         v-model="form.mobile_no"
@@ -131,6 +133,7 @@
                             placeholder="জেলা"
                             class="form-control"
                             name="city"
+                            required
                           />
                           <has-error :form="form" field="city"></has-error>
                         </div>
@@ -155,11 +158,10 @@
                       >
                       <textarea
                         name="address"
-                        placeholder=" সম্পূর্ণ ঠিকানা "
+                        placeholder="সম্পূর্ণ ঠিকানা"
                         class="form-control"
                         :class="{ 'is-invalid': form.errors.has('address') }"
                         v-model="form.address"
-                        @keyup="validation"
                         required
                       ></textarea>
                       <has-error :form="form" field="address"></has-error>
@@ -317,7 +319,7 @@
                         >
                         <textarea
                           name="shipping_address"
-                          placeholder=" সম্পূর্ণ ঠিকানা "
+                          placeholder=" সম্পূর্ণ ঠিকানা"
                           class="form-control"
                           :class="{
                             'is-invalid': form.errors.has('shipping_address'),
@@ -650,7 +652,6 @@
                     <button
                       class="btn order_place_btn btn-primary"
                       type="submit"
-                      :disabled="form.busy || disabled"
                     >
                       <i class="fa fa-spinner fa-spin" v-if="form.busy"></i
                       >PLACE ORDER
